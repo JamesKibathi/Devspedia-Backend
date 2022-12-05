@@ -1,0 +1,2 @@
+class Dev < ApplicationRecord
+end
