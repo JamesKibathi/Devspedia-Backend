@@ -23,6 +23,12 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+  # Sign-up dev 
+  post "/signup-dev",to: "devs#create"
+
+  #Dev login and Logout
+  post "/login-dev",to: "devsessions#create"
+  delete "/logout-dev",to: "devsessions#destroy"
  
 
 end

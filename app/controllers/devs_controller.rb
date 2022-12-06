@@ -1,4 +1,5 @@
 class DevsController < ApplicationController
+    rescue_from ActiveRecord::RecordInvalid, with: :invalid_credentials
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     def index
         devs=Dev.all
@@ -9,6 +10,13 @@ class DevsController < ApplicationController
         dev=Dev.find(params[:id])
         render json:dev
     end
+
+    # Sign-Up dev
+    def create
+        dev=Dev.create!(dev_params)
+        session[:user_id]=dev.id
+        render json: dev, status: :created
+    end
     
     private
 
@@ -16,5 +24,12 @@ class DevsController < ApplicationController
       render json: {error:"dev not found"}, status: :not_found
     end
 
+    def dev_params
+        params.permit(:username,:email,:fname,:lname,:password,:password_confirmation)
+    end
+    
+    def invalid_credentials invalid
+        render json:{errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
+    end
 
 end
