@@ -33,4 +33,10 @@ Rails.application.routes.draw do
   # DEV ARTICLE-SPECIFIC ROUTE
   get "/my-articles",to:"displaydevarticles#index"
 
+  # free articles
+  get "/freearticles",to:"freearticles#index"
+
+  # one free article
+  get "/freearticles/:id",to:"freearticles#show"
+
 end
