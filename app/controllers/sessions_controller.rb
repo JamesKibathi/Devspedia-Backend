@@ -4,7 +4,8 @@ class SessionsController < ApplicationController
         subscriber=Subscriber.find_by(username:params[:username])
         if subscriber&.authenticate(params[:password])
             session[:user_id]=subscriber.id
-            render json: subscriber
+            # render json: subscriber
+            render json: {success:"Welcome #{subscriber.username}"}
         else
             render json:{error:"Invalid username or password"}, status: :unauthorized
         end

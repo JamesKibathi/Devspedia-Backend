@@ -30,5 +30,7 @@ Rails.application.routes.draw do
   post "/login-dev",to: "devsessions#create"
   delete "/logout-dev",to: "devsessions#destroy"
  
+  # DEV ARTICLE-SPECIFIC ROUTE
+  get "/my-articles",to:"displaydevarticles#index"
 
 end
