@@ -22,4 +22,6 @@ class SubscribersController < ApplicationController
     def invalid_credentials invalid
         render json:{errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
     end
+
+    
 end
