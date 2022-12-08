@@ -39,4 +39,10 @@ Rails.application.routes.draw do
   # one free article
   get "/freearticles/:id",to:"freearticles#show"
 
+  # premium articles
+  get "/premiumarticles", to:"premiumarticles#index"
+
+  # one premium article
+  get "/premiumarticles/:id", to:"premiumarticles#show"
+
 end
