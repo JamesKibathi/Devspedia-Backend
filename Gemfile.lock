@@ -169,7 +169,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   debug
   faker
-  pg (~> 1.1)
+  pg
   puma (~> 5.0)
   rails (~> 7.0.4)
   tzinfo-data
