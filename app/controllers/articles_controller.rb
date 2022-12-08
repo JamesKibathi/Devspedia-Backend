@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
+before_action :authorize
+
     def index
       render json:Article.all,include: ["dev"]
       # serializer:DevsSerializer
@@ -28,5 +30,9 @@ rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
       params.permit(:title,:content,:minutes_to_read,:featured_image,:likes,:dev_id)
     end
 
+  def authorize
+    # sub=Subscriber.find(session[:user_id])
+    return render json:{error:"Unauthorized access"}, status: :unauthorized unless session.include? :user_id
+ end
 
 end
