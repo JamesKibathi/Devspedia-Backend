@@ -9,9 +9,17 @@ Rails.application.routes.draw do
   post "/articles",to: "articles#create"
   get "/devs", to: "devs#index"
   get "/devs/:id", to: "devs#show"
-  get "/profiles", to: "profiles#index"
-  get "/profiles/:id", to: "profiles#show"
-  post "/profiles", to: "profiles#create"
+  
+
+    # Display dev profile
+  get "/profile/:id", to: "profiles#show"
+
+     # Dev creates profile
+  post "/profile", to: "profiles#create"
+
+  # Dev updates profile
+  patch "/profile:id", to: "profiles#update"
+
 
   #sign up a user - subscribe a user
   post "/signup",to: "subscribers#create"
@@ -30,8 +38,6 @@ Rails.application.routes.draw do
   post "/login-dev",to: "devsessions#create"
   delete "/logout-dev",to: "devsessions#destroy"
  
-  # DEV ARTICLE-SPECIFIC ROUTE
-  get "/my-articles",to:"displaydevarticles#index"
 
   # free articles
   get "/freearticles",to:"freearticles#index"
@@ -44,5 +50,20 @@ Rails.application.routes.draw do
 
   # one premium article
   get "/premiumarticles/:id", to:"premiumarticles#show"
+
+  # display all dev articles
+  get "/myarticles", to: "displaydevarticles#index"
+
+  # display one dev article
+  get "/myarticles/:id", to: "devs#show"
+
+  # dev creates new article
+  post "/myarticles", to: "displaydevarticles#create"
+
+  # dev updates an article
+  patch "/myarticles/:id", to: "displaydevarticles#update"
+
+  # Dev deletes an article
+  delete "/myarticles/:id", to: "displaydevarticles#create"
 
 end
