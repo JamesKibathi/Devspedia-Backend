@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
-
     def index
       render json:Article.all,include: ["dev"]
     end

@@ -25,6 +25,7 @@ class PremiumarticlesController < ApplicationController
   end
 
   def authorize
-    return render json: {errors: ["Unauthorized access"]}, status: :unauthorized unless session.include? :user_id==subscriber.id
+    # sub=Subscriber.find(session[:user_id])
+    return render json: {errors: ["Unauthorized access"]}, status: :unauthorized unless session.include? :user_id
   end
 end
