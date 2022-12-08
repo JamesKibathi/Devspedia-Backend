@@ -6,6 +6,9 @@ ruby "2.7.4"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
+# Enable gemfile
+gem 'rack-cors', :require => 'rack/cors'
+
 # Use postgresql as the database for Active Record
 # gem "pg", "~> 1.1"
 gem "faker"
