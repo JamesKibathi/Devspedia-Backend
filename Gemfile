@@ -7,7 +7,7 @@ ruby "2.7.4"
 gem "rails", "~> 7.0.4"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+# gem "pg", "~> 1.1"
 gem "faker"
 # serializer
 gem "active_model_serializers", "~> 0.10.12"
@@ -32,3 +32,6 @@ group :development do
   # gem "spring"
 end
 
+group :production do
+    gem "pg"
+end
