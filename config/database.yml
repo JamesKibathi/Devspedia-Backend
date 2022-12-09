@@ -80,7 +80,8 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: Devspedia_backend_production
-  username: Devspedia_backend
-  password: <%= ENV["DEVSPEDIA_BACKEND_DATABASE_PASSWORD"] %>
+    url: <%= ENV["DATABASE_URL"] %>
+  # <<: *default
+  # database: Devspedia_backend_production
+  # username: Devspedia_backend
+  # password: <%= ENV["DEVSPEDIA_BACKEND_DATABASE_PASSWORD"] %>

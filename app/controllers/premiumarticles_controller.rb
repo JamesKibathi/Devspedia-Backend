@@ -2,15 +2,9 @@ class PremiumarticlesController < ApplicationController
   before_action :authorize
   rescue_from ActiveRecord::RecordNotFound, with: :resource_not_found
 
-  def find_sub
-     sub=Subscriber.find(session[:user_id])
-  end
-  
   def index
-    
     articles = Article.where(is_free: false).includes(:dev).order(created_at: :desc)
-    render json: articles
-    
+    render json: articles 
   end
 
   def show
