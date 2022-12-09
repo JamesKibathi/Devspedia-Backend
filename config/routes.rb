@@ -30,9 +30,14 @@ Rails.application.routes.draw do
   #Login and logout a user 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  # JWT OPTION -login user (susbscriber)
+  post "/login-subscriber", to: "jwt#create"
 
   # Sign-up dev 
   post "/signup-dev",to: "devs#create"
+
+  # JWT OPTION -login dev 
+   post "/logindev", to: "dev_jwt#create"
 
   #Dev login and Logout
   post "/login-dev",to: "devsessions#create"

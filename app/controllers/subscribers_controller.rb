@@ -1,11 +1,19 @@
 class SubscribersController < ApplicationController
  rescue_from ActiveRecord::RecordInvalid, with: :invalid_credentials
-   # Add a new subscriber 
+#  skip_before_action :authorized, only:[:create] 
+   
+ #  Add a new subscriber - sessions way
     def create
         subscriber=Subscriber.create!(sub_params)
         session[:user_id]=subscriber.id
         render json: subscriber, status: :created
     end
+
+        # # Create Subscriber -JWT way
+        #  def create
+        #     subscriber=Subscriber.create!(sub_params)
+        #     render json: subscriber, status: :created
+        # end
 
     # My account 
    def show

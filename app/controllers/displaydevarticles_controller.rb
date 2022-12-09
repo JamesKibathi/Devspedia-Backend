@@ -1,11 +1,21 @@
 class DisplaydevarticlesController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid , with: :article_not_created
     rescue_from ActiveRecord::RecordNotFound, with: :article_not_found
-    def create
+
+    # def create - sessions way
         user=User.find(session[:user_id])
         recipe=Recipe.create!(user_id:user.id,title:params[:title],instructions:params[:instructions],minutes_to_complete:params[:minutes_to_complete])
         render json: recipe, serializer:RecipesSerializer, status: :created  
     end
+
+
+    # Create Dev -JWT way
+    # def create
+    #   user=User.find(params[:id])
+    #   recipe=Recipe.create!(user_id:user.id,title:params[:title],instructions:params[:instructions],minutes_to_complete:params[:minutes_to_complete])
+    #   render json: recipe, serializer:RecipesSerializer, status: :created  
+    # end
+ 
    
     # Display all dev articles
     def index
