@@ -22,14 +22,17 @@ Rails.application.routes.draw do
   post "/profile", to: "profiles#create"
 
   # Dev updates profile
-  patch "/profile:id", to: "profiles#update"
+  patch "/profile/:id", to: "profiles#update"
 
 
   #sign up a user - subscribe a user
   post "/signup",to: "subscribers#create"
-  
+
+  # display all subscribers
+  get "/subscribers", to: "subscribers#index"
+
   #display specific subscriber 
-  get "/me", to: "subscribers#show"
+  get "/subscribers/:id", to: "subscribers#show"
 
   #Login and logout a user 
   post "/login", to: "sessions#create"

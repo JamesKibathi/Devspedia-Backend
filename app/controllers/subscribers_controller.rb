@@ -15,11 +15,19 @@ class SubscribersController < ApplicationController
         #     render json: subscriber, status: :created
         # end
 
+
+    #All subscibers
+       def index
+        subscriber=Subscriber.all
+        render json: subscriber
+        end
+        
     # My account 
-   def show
-    subscriber=Subscriber.find_by(id:session[:user_id])
-    render json: subscriber, status: :created
-   end
+        def show
+            # subscriber=Subscriber.find_by(id:session[:user_id])
+            subscriber=Subscriber.find(session[:user_id])
+            render json: subscriber, status: :created
+        end
 
     private
 
