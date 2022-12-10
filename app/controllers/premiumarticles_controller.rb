@@ -1,5 +1,5 @@
 class PremiumarticlesController < ApplicationController
-  before_action :authorize
+  #before_action :authorize
   rescue_from ActiveRecord::RecordNotFound, with: :resource_not_found
 
   def index

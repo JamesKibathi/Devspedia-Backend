@@ -35,21 +35,21 @@ Rails.application.routes.draw do
   get "/subscribers/:id", to: "subscribers#show"
 
   #Login and logout a user 
-  post "/login", to: "sessions#create"
+  # post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
   # JWT OPTION -login user (susbscriber)
-  # post "/login-subscriber", to: "jwt#create"
+  post "/login-subscriber", to: "jwt#create"
 
   # Sign-up dev 
   post "/signup-dev",to: "devs#create"
 
-  #Dev login and Logout
-  post "/login-dev",to: "devsessions#create"
-  delete "/logout-dev",to: "devsessions#destroy"
+  #Dev login and Logout -sessions
+  # post "/login-dev",to: "devsessions#create"
+  # delete "/logout-dev",to: "devsessions#destroy"
 
    # JWT OPTION -login dev 
-  #  post "/logindev", to: "dev_jwt#create"
+   post "/logindev", to: "dev_jwt#create"
  
 
   # free articles
