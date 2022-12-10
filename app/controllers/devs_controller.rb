@@ -2,7 +2,7 @@ class DevsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :invalid_credentials
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
-    # skip_before_action :authorized, only:[:create]
+    skip_before_action :authorized, only:[:create,:index]
     
     def index
         devs=Dev.all
@@ -15,17 +15,17 @@ class DevsController < ApplicationController
     end
 
     # Sign-Up dev sessions way
-    def create
-        dev=Dev.create!(dev_params)
-        session[:user_id]=dev.id
-        render json: dev, status: :created
-    end
-
-     # Sign-Up dev jwt way
-    #  def create
+    # def create
     #     dev=Dev.create!(dev_params)
+    #     session[:user_id]=dev.id
     #     render json: dev, status: :created
     # end
+
+     # Sign-Up dev jwt way
+     def create
+        dev=Dev.create!(dev_params)
+        render json: dev, status: :created
+    end
     
     private
 
