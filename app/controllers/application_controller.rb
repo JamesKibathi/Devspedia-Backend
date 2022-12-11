@@ -39,6 +39,6 @@ def current_dev
       !!current_user || !!current_dev
     end
     def authorized
-      render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
+      render json: { message: 'Unauthorized access, you must be logged in' }, status: :unauthorized unless logged_in?
     end
 end

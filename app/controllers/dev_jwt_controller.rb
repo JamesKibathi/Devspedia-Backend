@@ -6,7 +6,7 @@ class DevJwtController < ApplicationController
             token = encode_token(dev_id: dev.id)
             render json: { dev: DevSerializer.new(dev), jwt: token }, status: :accepted
         else
-            render json: { errors: "Invalid email or password" }, status: :unauthorized
+            render json: { errors: "Invalid username or password" }, status: :unauthorized
         end
     end
 end
