@@ -77,6 +77,6 @@ Rails.application.routes.draw do
   patch "/myarticles/:id", to: "displaydevarticles#update"
 
   # Dev deletes an article
-  delete "/myarticles/:id", to: "displaydevarticles#create"
+  delete "/myarticles/:id", to: "displaydevarticles#destroy"
 
 end
