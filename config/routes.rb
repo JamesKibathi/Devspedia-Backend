@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     # display one dev
   get "/devs/:id", to: "devs#show"
   
-
+  # Display all dev profile
+  get "/profile", to: "profile#index"
     # Display dev profile
   get "/profile/:id", to: "profiles#show"
 

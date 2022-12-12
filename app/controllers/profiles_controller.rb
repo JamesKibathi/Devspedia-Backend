@@ -9,11 +9,15 @@ class ProfilesController < ApplicationController
     #     render json:profile
     # end
       # Display dev profile -JWT
-          def show
-
+          def index
             profile = Profile.all
             render json:profile
-        end
+           end
+
+           def show
+            profile = Profile.find(params[:id])
+            render json:profile
+           end
     # Create profile
     # def create
     #     dev=Dev.find(session[:user_id])
