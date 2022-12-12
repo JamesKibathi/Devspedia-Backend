@@ -3,17 +3,28 @@ class ProfilesController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid , with: :profile_not_created
 
     # Display dev profile 
-    def show
-        dev=Dev.find(session[:user_id])
-        profile = Profile.where(dev_id:dev.id).find(params[:id])
-        render json:profile
-    end
+    # def show
+    #     dev=Dev.find(session[:user_id])
+    #     profile = Profile.where(dev_id:dev.id).find(params[:id])
+    #     render json:profile
+    # end
+      # Display dev profile -JWT
+          def show
+
+            profile = Profile.all
+            render json:profile
+        end
     # Create profile
+    # def create
+    #     dev=Dev.find(session[:user_id])
+    #     profile=Profile.create!(dev_id:dev.id,bio:params[:bio],image_url:params[:image_url],linkedin:params[:linkedin], github:params[:github],twitter:params[:twitter])
+    #     render json:profile
+    # end
+  # Create profile -JWT
     def create
-        dev=Dev.find(session[:user_id])
-        profile=Profile.create!(dev_id:dev.id,bio:params[:bio],image_url:params[:image_url],linkedin:params[:linkedin], github:params[:github],twitter:params[:twitter])
-        render json:profile
-    end
+      profile=Profile.create!(profile_params)
+      render json:profile
+  end
     
     # Update Profile
 
