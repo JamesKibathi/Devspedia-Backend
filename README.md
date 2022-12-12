@@ -185,5 +185,5 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Authors' Infor
 
-- [James Njenga](#james.njenga@student.moringaschool.com)
+- [James Njenga](#njenga.consulting@gmail.com)
 - [Maureen Kamau](#mkaymaureen@gmail.com)
