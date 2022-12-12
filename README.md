@@ -1,5 +1,7 @@
 # Devspedia Backend
 
+-This is the backend of the Devspedia Web App, which was created as part of a group project at the end of our phase 4  at Moringa.
+
 ## Table of contents
 
 - [Description](#description)
@@ -16,7 +18,10 @@
 
 ## Description
 
-Devspedia backend has the following functionalities:
+This is a Rails API that uses Active Record to access and persist data in the database. Used to serve a separate 
+React frontend (https://github.com/iamkibeh/devspedia-frontend).
+
+Devspedia API has the following functionalities:
 
 - Authentication:
 
