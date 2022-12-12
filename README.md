@@ -6,6 +6,7 @@
 - [Contributors](#contributors)
 - [Technologies Used](#technologies-used)
 - [Requirements](#requirements)
+- [Live Link](#live-link)
 - [Configuration](#Configuration)
 - [Database Creation](#database-creation)
 - [Deployment Instructions](#deployment-instructions)
@@ -44,6 +45,10 @@ Devspedia backend has the following functionalities:
 ## Requirements
 
 - Ruby 2.7.4
+
+## Live link
+
+https://devspedia-api-production.up.railway.app/
 
 ## Configuration
 
