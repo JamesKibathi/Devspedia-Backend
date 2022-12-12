@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   # Dev updates profile
   patch "/profile/:id", to: "profiles#update"
+  
 
 
   #sign up a user - subscribe a user

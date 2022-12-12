@@ -32,14 +32,25 @@ class ProfilesController < ApplicationController
     
     # Update Profile
 
-    def update
-        dev=Dev.find(session[:user_id])
-        profile = Profile.where(dev_id:dev.id).find(params[:id])
-        if profile
+    # def update
+    #     dev=Dev.find(session[:user_id])
+    #     profile = Profile.where(dev_id:dev.id).find(params[:id])
+    #     if profile
+    #       profile.update(profile_params)
+    #       render json: profile
+    #     else
+    #       render json: { "errors": ["Could not update profile"] }, status: :bad_request
+    #     end
+    #   end
+
+     # Update Profile -JWT
+      def update
+        profile=Profile.find(params[:id])
+        if profile.valid?
           profile.update(profile_params)
-          render json: profile
+          render json: profile, status: :ok
         else
-          render json: { "errors": ["Could not update profile"] }, status: :bad_request
+            render json:{errors:profile.errors.full_messages}, status: :unprocessable_entity
         end
       end
 
