@@ -7,7 +7,7 @@ class JwtController < ApplicationController
             token = encode_token(subscriber_id: subscriber.id)
             render json: { subscriber: SubscriberSerializer.new(subscriber), jwt: token }, status: :accepted
         else
-            render json: { errors: "Invalid email or password" }, status: :unauthorized
+            render json: { errors: "Invalid username or password" }, status: :unauthorized
         end
     end
 end
